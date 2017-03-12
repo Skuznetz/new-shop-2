@@ -1,11 +1,12 @@
 class ItemsController < ApplicationController
 
   def index
-  	@items = Item.all 
-  	render text: @items.map { |i| "#{i.name}: #{i.price}"}.join("<br/>")
+  	
   end
 
   def show
+  	@item = Item.where(id: params[:id]).firs
+  	render "item show"
   end
   
   def new
