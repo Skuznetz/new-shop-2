@@ -5,8 +5,12 @@ class ItemsController < ApplicationController
   end
 
   def show
-  	@item = Item.where(id: params[:id]).firs
-  	render "item show"
+  	if @item = Item.where(id: params[:id]).first
+  	#render "item show"
+    else
+    	render text:"Poge not found", status: 404
+    end
+
   end
   
   def new
