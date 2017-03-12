@@ -1,14 +1,12 @@
 class ItemsController < ApplicationController
 
   def index
-  	
+  	@items = Item.all
   end
 
   def show
-  	if @item = Item.where(id: params[:id]).first
-  	#render "item show"
-    else
-    	render text:"Poge not found", status: 404
+  	unless @item = Item.where(id: params[:id]).first
+  	render text:"Poge not found", status: 404
     end
 
   end
