@@ -30,6 +30,12 @@ class ItemsController < ApplicationController
   end
 
   def update
+  		@item = Item.create(item_params)
+  	@item.save
+  	if @item.errors.empty?
+  		redirect_to item_path(@item)
+  	else
+  		render "new"
   end
 
   def destroy
