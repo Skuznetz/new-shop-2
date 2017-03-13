@@ -30,12 +30,15 @@ class ItemsController < ApplicationController
   end
 
   def update
-  		@item = Item.create(item_params)
+  		@item = Item.find(params[:id])
   	@item.save
-  	if @item.errors.empty?
+  	if 
+  		@item.update(item_params)
+  		@item.errors.empty?
   		redirect_to item_path(@item)
   	else
-  		render "new"
+  		render "edit"
+  	end
   end
 
   def destroy
