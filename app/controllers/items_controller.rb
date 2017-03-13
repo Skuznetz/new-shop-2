@@ -18,7 +18,13 @@ class ItemsController < ApplicationController
   end
 
   def create
-  	@item = Item.create(params[:item])
+  	@item = Item.create(item_params)
+  	@item.save
+  	if @item.errors.empty?
+  		redirect_to item_path(@item)
+  	else
+  		render "new"
+  	end
   end
 
   def update
@@ -26,5 +32,8 @@ class ItemsController < ApplicationController
 
   def destroy
   end
- 
+  private
+    def item_params
+      params.require(:item).permit(:name,:price,:description,:weight)
+    end
 end
