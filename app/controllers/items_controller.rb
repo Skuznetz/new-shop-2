@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-  	render text: "item created"
+  	@item = Item.create(params[:item])
   end
 
   def update
