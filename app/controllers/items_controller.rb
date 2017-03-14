@@ -1,11 +1,13 @@
 class ItemsController < ApplicationController
 
+	before_filter :find_item, only: [:show,:edit,:update,:destroy]
+
   def index
   	@items = Item.all
   end
 
   def show
-  	unless @item = Item.where(id: params[:id]).first
+  	unless @item 
   	render text:"Poge not found", status: 404
     end
 
@@ -16,7 +18,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
+   
   end
 
   def create
@@ -30,7 +32,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-  		@item = Item.find(params[:id])
   	@item.save
   	if 
   		@item.update(item_params)
@@ -42,12 +43,16 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-  	@item = Item.find(params[:id])
+  
   	@item.destroy
   	redirect_to item_path
   end
   private
     def item_params
       params.require(:item).permit(:name,:price,:description,:weight)
+    end
+
+    def find_item
+      	@item = Item.find(params[:id])
     end
 end
