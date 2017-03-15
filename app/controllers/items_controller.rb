@@ -50,6 +50,7 @@ class ItemsController < ApplicationController
 
 def upvote
   @item.increment!(:votes_count)
+  redirect_to item_path
 end
 
 
