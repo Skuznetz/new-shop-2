@@ -7,6 +7,8 @@ class ItemsController < ApplicationController
   end
 
   def expensive
+  	@items = Item.where("price > 1000")
+  	render "index"
   end
 
   def show
