@@ -65,7 +65,11 @@ end
     end
 
     def find_item
-      	@item = Item.where(params[:id]).firs
+      	@item = Item.where(params[:id]).first
       	render_404 unless @item
+    end
+
+    def check_if_admin
+      render text:"Access denied",status: 403 unless params[:admin]
     end
 end
