@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-	before_filter :find_item, only: [:show,:edit,:update,:destroy]
+	before_filter :find_item, only: [:show,:edit,:update,:destroy,:upvote]
 
   def index
   	@items = Item.all
@@ -49,6 +49,7 @@ class ItemsController < ApplicationController
   end
 
 def upvote
+  @item.increment!(:votes_count)
 end
 
 
