@@ -65,6 +65,7 @@ end
     end
 
     def find_item
-      	@item = Item.find(params[:id])
+      	@item = Item.where(params[:id]).firs
+      	render_404 unless @item
     end
 end
