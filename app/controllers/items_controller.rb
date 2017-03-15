@@ -47,6 +47,11 @@ class ItemsController < ApplicationController
   	@item.destroy
   	redirect_to item_path
   end
+
+def upvote
+end
+
+
   private
     def item_params
       params.require(:item).permit(:name,:price,:description,:weight)
