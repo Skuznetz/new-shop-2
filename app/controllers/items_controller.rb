@@ -6,6 +6,9 @@ class ItemsController < ApplicationController
   	@items = Item.all
   end
 
+  def expensive
+  end
+
   def show
   	unless @item 
   	render text:"Poge not found", status: 404
@@ -50,7 +53,7 @@ class ItemsController < ApplicationController
 
 def upvote
   @item.increment!(:votes_count)
-  redirect_to item_path
+  redirect_to action: :index
 end
 
 
