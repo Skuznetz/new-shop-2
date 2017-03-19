@@ -4,7 +4,8 @@ class ItemsController < ApplicationController
     #before_filter :check_if_admin, only: [:edit,:update,:new,:create,:destroy]
   def index
   	@items = Item
-  	@items = @items.where(" price >=?",params[:price_from])if params[:price_from]
+  	@items = @items.where(" price >=?",params[:price_from]) if params[:price_from]
+  	@items =@items.where("created_at >= ?",1.day.ago) if params[:today]
   	@items = @items.order("votes_count DESC","price")
   end
 
