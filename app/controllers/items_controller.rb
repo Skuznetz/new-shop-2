@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 	before_filter :find_item, only: [:show,:edit,:update,:destroy,:upvote]
     #before_filter :check_if_admin, only: [:edit,:update,:new,:create,:destroy]
   def index
-  	@items = Item.where(' price >=100')
+  	@items = Item.where(" price >=?",params[:price_from])
   end
 
   def expensive
