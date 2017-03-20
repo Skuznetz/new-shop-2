@@ -7,17 +7,8 @@ class Item < ApplicationRecord
 	has_many :carts,through: :positions
 
 	has_many :comments,as: :commentable
-	has_many :image,as: :imageable
-	after_save :save_image
+	
 
-	def image=(i)
-	  if !image || !new_record?
-	  	@image - Image.create(i.merge({imageable: self}))
-	  end
-	end
-
-	def save_image
-	end
    # attr_acessible :price,:name,:real,:weight,:description
     # after_initialize {}
     # after_save       {}
