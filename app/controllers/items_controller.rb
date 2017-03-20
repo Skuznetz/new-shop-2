@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
   	if 
   		@item.update(item_params)
   		@item.errors.empty?
+  		flash[:success] = "Товар обновлён"
   		redirect_to item_path(@item)
   	else
       flash[:error] = "Пожалуйста,корректно заполняйте форму"  	  
