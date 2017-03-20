@@ -7,7 +7,10 @@ class Item < ApplicationRecord
 	has_many :carts,through: :positions
 
 	has_many :comments,as: :commentable
-	has_many :images,as: :imageable
+	has_many :image,as: :imageable
+	after_save :save_image
+
+	
    # attr_acessible :price,:name,:real,:weight,:description
     # after_initialize {}
     # after_save       {}
