@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
   		flash[:success] = "Товар обновлён"
   		redirect_to item_path(@item)
   	else
-      flash[:error] = "Пожалуйста,корректно заполняйте форму"  	  
+      flash.now[:error] = "Пожалуйста,корректно заполняйте форму"  	  
       render "edit"
   	end
   end
