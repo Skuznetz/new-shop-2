@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   	@items = @items.where("created_at >= ?",1.day.ago)            if params[:today]
   	@items = @items.where("votes_count >=?",params[:votes_from]) if params[:votes_from]
   	@items = @items.order("votes_count DESC","price")
-  	
+
   end
 
   def expensive
@@ -48,7 +48,8 @@ class ItemsController < ApplicationController
   		@item.errors.empty?
   		redirect_to item_path(@item)
   	else
-  		render "edit"
+      flash[:error] = "Пожалуйста,корректно заполняйте форму"  	  
+      render "edit"
   	end
   end
 
