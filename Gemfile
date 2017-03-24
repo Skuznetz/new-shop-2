@@ -11,9 +11,9 @@ gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'carrierwave'
+gem 'simple_form'
 
-
-gem 'haml-rails'
+# gem 'haml-rails'
 gem 'paperclip'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -63,4 +63,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'wdm', '>= 0.1.0'
+# gem 'wdm', '>= 0.1.0'
