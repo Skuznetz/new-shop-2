@@ -8,7 +8,7 @@ class Item < ApplicationRecord
 
 	has_many :comments,as: :commentable
 	
-
+    has_and_belongs_to_many :orders
    # attr_acessible :price,:name,:real,:weight,:description
     # after_initialize {}
     # after_save       {}

@@ -11,6 +11,6 @@ describe Order do
     order.items << item2
 
     order.calculate_total
-    order.total.should = 30
+    order.total.should == 30
 end
 end
