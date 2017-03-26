@@ -13,4 +13,8 @@ describe Order do
     order.calculate_total
     expect(order.total).to eq(30)
 end
+  
+  it "raises exception if order has no items in it" do 
+  	expect( ->{create(:order)}).to raise_exception
+  end
 end
