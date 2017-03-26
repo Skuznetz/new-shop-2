@@ -3,10 +3,10 @@ require 'rails_helper'
 
 describe Order do 
   it "расчет полной стоимости заказа" do 
-  	item1 = Item.new(price: 10)
-    item2 = Item.new(price: 20)
+  	item1 = create(:item)
+    item2 = create(:item,price: 20)
 
-    order = Order.new
+    order = create(:order)
     order.items << item1
     order.items << item2
 
