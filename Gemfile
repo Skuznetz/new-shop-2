@@ -33,7 +33,7 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 group :test do
   gem 'rspec-rails'
-  gem 'factory_girl'
+  gem 'factory_girl','~> 4.8.0'
 end
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

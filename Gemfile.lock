@@ -77,7 +77,7 @@ GEM
       actionmailer (>= 4.0, < 6)
       activesupport (>= 4.0, < 6)
     execjs (2.7.0)
-    factory_girl (4.7.0)
+    factory_girl (4.8.0)
       activesupport (>= 3.0.0)
     ffi (1.9.18)
     ffi (1.9.18-x64-mingw32)
@@ -227,7 +227,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   exception_notification
-  factory_girl
+  factory_girl (~> 4.8.0)
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
