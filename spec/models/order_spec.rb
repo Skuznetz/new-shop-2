@@ -6,7 +6,7 @@ describe Order do
   	item1 = create(:item)
     item2 = create(:item,price: 20)
 
-    order = create(:order)
+    order = Order.new
     order.items << item1
     order.items << item2
 

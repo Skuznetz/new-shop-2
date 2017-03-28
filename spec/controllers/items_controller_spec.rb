@@ -5,7 +5,7 @@ describe ItemsController do
 
   def self.it_renders_404_page_when_item_is_not_found(*actions)
     actions.each do |a| 
-      it "#{action} renders 404 page when item is not found" do 
+      it "#{a} renders 404 page when item is not found" do 
         verb = if a == :update
           "PATCH"
         elsif a == :destroy
@@ -30,11 +30,11 @@ describe ItemsController do
 
  end
    describe "create action" do 
-#     it "redirect to image cropping page if validations pass" do 
-#       post :create,item: {name: 'Item 1',price: '10'},admin: 1
-#       response.should redirect_to(crop_image_item_path(assigns(:item)))
+    # it "redirect to image cropping page if validations pass" do 
+    #   post :create,item: {name: 'Item 1',price: '10'},admin: 1
+    #   response.should redirect_to(item_path(assigns(:item)))
 
-#     end
+    # end
     it "renders new page again if validations fail" do 
       post :create, item:{ name: 'Item 1',price: 0},admin: 1
       response.should render_template('new')
