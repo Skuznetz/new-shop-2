@@ -13,13 +13,13 @@ describe ItemsController do
       get :show, {id: 0 }
       response.status.should == 404
   end
-end
-  describe "create action" do 
-    it "redirect to image cropping page if validations pass" do 
-      post :create,item: {name: 'Item 1',price: '10'},admin: 1
-      response.should redirect_to(crop_image_item_path(assigns(:item)))
+ end
+   describe "create action" do 
+#     it "redirect to image cropping page if validations pass" do 
+#       post :create,item: {name: 'Item 1',price: '10'},admin: 1
+#       response.should redirect_to(crop_image_item_path(assigns(:item)))
 
-    end
+#     end
     it "renders new page again if validations fail" do 
       post :create, item:{ name: 'Item 1',price: 0},admin: 1
       response.should render_template('new')
@@ -30,5 +30,15 @@ end
     end
 
   end
-
+  describe "destroy action" do 
+    it "redirects to index action when an item is destroyed successfully" do
+      item = create(:item)
+      delete :destroy, id: item.id,admin: 1
+      response.should redirect_to(item_path)
+  end
+    it "renders 404 page if an item was not found" do 
+      delete :destroy, id: 0,admin: 1
+      response.status.should == 404
+    end
+  end
 end
