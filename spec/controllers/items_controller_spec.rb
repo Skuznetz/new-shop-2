@@ -3,16 +3,31 @@ require 'rails_helper'
 
 describe ItemsController do 
 
+  def self.it_renders_404_page_when_item_is_not_found(*actions)
+    actions.each do |a| 
+      it "#{action} renders 404 page when item is not found" do 
+        verb = if a == :update
+          "PATCH"
+        elsif a == :destroy
+          "DELETE"
+        else
+          "GET"
+        end
+        process a, verb, {id: 0}
+        response.status.should == 404
+
+      end
+    end
+  end
+  it_renders_404_page_when_item_is_not_found :show, :edit, :update, :destroy
+
   describe "show action" do
     it "renders show template if an items is found" do 
       item = create(:item)
       get :show,{ id: item.id }
       response.should render_template('show')
   end
-    it "renders 404 page if an item is not found" do 
-      get :show, {id: 0 }
-      response.status.should == 404
-  end
+
  end
    describe "create action" do 
 #     it "redirect to image cropping page if validations pass" do 
@@ -36,9 +51,6 @@ describe ItemsController do
       delete :destroy, id: item.id,admin: 1
       response.should redirect_to(item_path)
   end
-    it "renders 404 page if an item was not found" do 
-      delete :destroy, id: 0,admin: 1
-      response.status.should == 404
-    end
+    
   end
 end
