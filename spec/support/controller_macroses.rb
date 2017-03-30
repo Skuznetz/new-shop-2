@@ -8,8 +8,9 @@ module ControllerMacros
     actions.each do |a| 
       it "#{a} renders 404 page when item is not found" do 
         verb = if a == :update
-          "PATCH"
+        	"PATCH"
         elsif a == :destroy
+          
           "DELETE"
         else
           "GET"

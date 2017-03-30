@@ -17,7 +17,7 @@
    	
    </td>
    <td><%= i.price %> руб.</td>
-   <td><%= link_to "Удалить",item_path(i) ,method: :delete, data: {confirm: "ТОЧНО УДАЛИТЬ?"} %></td>
+   <td><span class="deleteAction">Удалить</span></td>
     <td>Рейтинг: <%= i.votes_count %>,<%= link_to "+",upvote_item_path(i) %></td>
  </tr>
 
