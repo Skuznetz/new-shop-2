@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'info@newshop2.localhost',
+  template path: 'items_mailer/items'
   layout 'mailer'
 end
