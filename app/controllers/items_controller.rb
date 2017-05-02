@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
 
 	before_filter :find_item, only: [:show,:edit,:update,:destroy,:upvote]
-    before_filter :check_if_admin, only: [:edit,:update,:new,:create,:destroy]
-    before_filter :authenticate_user!
+    #before_filter :check_if_admin, only: [:edit,:update,:new,:create,:destroy]
+    #before_filter :authenticate_user!
   def index
   	@items = Item
   	@items = @items.where(" price >=?",params[:price_from])      if params[:price_from]
