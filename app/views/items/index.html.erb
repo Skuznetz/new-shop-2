@@ -1,28 +1,27 @@
 <h1>Товар</h1>
-
 <table>
-<tr>
-  <th>товар</th>
-  <th>Название</th>
-  <th>Цена</th>
-  <th></th>
-  <th></th>
-</tr>
- <% @items.each do |i| %>
-   <tr>
-   <td><%= i.id %></td>
-   <td>
-   
-   <%= link_to i.name, item_path(i) %>
-   	
-   </td>
-   <td><%= i.price %> руб.</td>
-   <td><span class="deleteAction">Удалить</span></td>
-    <td>Рейтинг: <%= i.votes_count %>,<%= link_to "+",upvote_item_path(i) %></td>
- </tr>
-
-<% end %>
+    <tr>
+        <th>товар</th>
+        <th>Название</th>
+        <th>Цена</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <% @items.each do |i| %>
+        <tr>
+            <td>
+                <%= i.id %>
+            </td>
+            <td>
+                <%= link_to i.name, item_path(i) %>
+            </td>
+            <td>
+                <%= i.price %> руб.</td>
+            <td><span class="deleteAction">Удалить</span></td>
+            <td>Рейтинг:
+                <%= i.votes_count %>,
+                    <%= link_to "+",upvote_item_path(i) %>
+            </td>
+        </tr>
+        <% end %>
 </table>
-
-
-
