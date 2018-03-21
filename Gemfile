@@ -15,7 +15,7 @@ gem 'carrierwave'
 gem 'simple_form'
 
 # gem 'haml-rails'
-gem 'paperclip'
+gem 'paperclip','~> 5.2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
